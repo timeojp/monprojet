@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Floup Shop 🍬</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #fff8e7;
+            color: #173d2a;
+        }
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 15px 6%;
+
+            background: #f47721;
+            border-bottom: 5px solid #078653;
+        }
+
+        .logo {
+            font-size: 42px;
+            font-weight: 1000;
+
+            color: #ffe600;
+
+            text-shadow:
+                4px 4px 0 #e72d21;
+
+            transform: rotate(-3deg);
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 17px;
+        }
+
+        nav a:hover {
+            color: #ffe600;
+        }
+
+        .cart-button {
+            border: none;
+
+            background: #ffe600;
+            color: #df2b20;
+
+            padding: 12px 20px;
+
+            border-radius: 30px;
+
+            font-size: 16px;
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.2s;
+        }
+
+        .cart-button:hover {
+            transform: scale(1.05);
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 750px;
+
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+            align-items: center;
+
+            padding: 70px 8%;
+
+            background: #f47721;
+
+            overflow: hidden;
+        }
+
+        .hero-text h1 {
+            font-size: clamp(70px, 10vw, 150px);
+
+            line-height: 0.8;
+
+            color: #ffe600;
+
+            text-shadow:
+                7px 7px 0 #df2b20;
+
+            transform: rotate(-4deg);
+
+            margin-bottom: 40px;
+        }
+
+        .hero-text p {
+            max-width: 550px;
+
+            color: white;
+
+            font-size: 21px;
+
+            line-height: 1.6;
+        }
+
+        .hero-button {
+            display: inline-block;
+
+            margin-top: 30px;
+
+            padding: 17px 30px;
+
+            background: #078653;
+            color: white;
+
+            text-decoration: none;
+
+            border-radius: 40px;
+
+            font-weight: bold;
+            font-size: 18px;
+
+            box-shadow: 0 7px 0 #045b39;
+
+            transition: 0.2s;
+        }
+
+        .hero-button:hover {
+            transform: translateY(3px);
+            box-shadow: 0 4px 0 #045b39;
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-image img {
+            width: min(420px, 80%);
+
+            filter:
+                drop-shadow(20px 20px 10px rgba(0, 0, 0, 0.3));
+
+            transform: rotate(-15deg);
+
+            transition: 0.4s;
+        }
+
+        .hero-image img:hover {
+            transform: rotate(-8deg) scale(1.05);
+        }
+
+
+        /* =========================
+           PRODUITS
+        ========================= */
+
+        #produits {
+            padding: 90px 7%;
+        }
+
+        .section-title {
+            text-align: center;
+
+            font-size: 50px;
+
+            color: #df2b20;
+
+            margin-bottom: 50px;
+        }
+
+        .products {
+            max-width: 1200px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(250px, 1fr));
+
+            gap: 30px;
+        }
+
+        .product {
+            background: white;
+
+            border: 4px solid #078653;
+
+            border-radius: 25px;
+
+            padding: 25px;
+
+            text-align: center;
+
+            box-shadow: 0 8px 0 #d4e6d5;
+
+            transition: 0.25s;
+        }
+
+        .product:hover {
+            transform: translateY(-8px);
+        }
+
+        .product img {
+            width: 100%;
+            height: 250px;
+
+            object-fit: contain;
+
+            transform: rotate(-8deg);
+
+            margin-bottom: 15px;
+        }
+
+        .product h3 {
+            font-size: 25px;
+
+            color: #df2b20;
+
+            margin-bottom: 10px;
+        }
+
+        .product p {
+            color: #555;
+
+            margin-bottom: 15px;
+        }
+
+        .price {
+            font-size: 25px;
+
+            font-weight: bold;
+
+            margin-bottom: 18px;
+        }
+
+        .add-button {
+            width: 100%;
+
+            padding: 14px;
+
+            border: none;
+
+            border-radius: 15px;
+
+            background: #f47721;
+
+            color: white;
+
+            font-size: 17px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.2s;
+        }
+
+        .add-button:hover {
+            background: #df2b20;
+        }
+
+
+        /* =========================
+           HISTOIRE
+        ========================= */
+
+        .about {
+            background: #078653;
+
+            color: white;
+
+            text-align: center;
+
+            padding: 90px 20px;
+        }
+
+        .about h2 {
+            color: #ffe600;
+
+            font-size: 50px;
+
+            margin-bottom: 25px;
+        }
+
+        .about p {
+            max-width: 750px;
+
+            margin: auto;
+
+            font-size: 19px;
+
+            line-height: 1.8;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: #173d2a;
+
+            color: white;
+
+            text-align: center;
+
+            padding: 30px;
+        }
+
+
+        /* =========================
+           PANIER
+        ========================= */
+
+        .cart-modal {
+            display: none;
+
+            position: fixed;
+
+            z-index: 2000;
+
+            inset: 0;
+
+            background: rgba(0, 0, 0, 0.6);
+
+            justify-content: center;
+            align-items: center;
+
+            padding: 20px;
+        }
+
+        .cart-modal.active {
+            display: flex;
+        }
+
+        .cart-box {
+            background: #fff8e7;
+
+            width: 100%;
+            max-width: 550px;
+
+            max-height: 80vh;
+
+            overflow-y: auto;
+
+            border-radius: 25px;
+
+            padding: 30px;
+
+            border: 5px solid #f47721;
+        }
+
+        .cart-header {
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            margin-bottom: 20px;
+        }
+
+        .cart-header h2 {
+            color: #df2b20;
+
+            font-size: 30px;
+        }
+
+        .close-button {
+            border: none;
+
+            background: none;
+
+            font-size: 28px;
+
+            cursor: pointer;
+        }
+
+        .cart-item {
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            gap: 15px;
+
+            padding: 15px 0;
+
+            border-bottom: 1px solid #ddd;
+        }
+
+        .cart-item button {
+            background: #df2b20;
+
+            color: white;
+
+            border: none;
+
+            padding: 6px 10px;
+
+            border-radius: 8px;
+
+            cursor: pointer;
+        }
+
+        .cart-total {
+            font-size: 24px;
+
+            font-weight: bold;
+
+            margin-top: 25px;
+
+            text-align: right;
+        }
+
+        .checkout {
+            width: 100%;
+
+            margin-top: 20px;
+
+            padding: 15px;
+
+            border: none;
+
+            border-radius: 15px;
+
+            background: #078653;
+
+            color: white;
+
+            font-size: 18px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 800px) {
+
+            header {
+                padding: 12px 5%;
+            }
+
+            .logo {
+                font-size: 32px;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+
+                text-align: center;
+
+                padding: 60px 7%;
+            }
+
+            .hero-text p {
+                margin: auto;
+            }
+
+            .hero-image {
+                margin-top: 50px;
+            }
+
+            .hero-image img {
+                width: 270px;
+            }
+
+            .section-title {
+                font-size: 38px;
+            }
+
+            .about h2 {
+                font-size: 38px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+    <div class="logo">
+        FLOUP!
+    </div>
+
+    <nav>
+        <a href="#accueil">Accueil</a>
+        <a href="#produits">Produits</a>
+        <a href="#histoire">Histoire</a>
+    </nav>
+
+    <button class="cart-button" onclick="openCart()">
+        🛒 Panier
+        (<span id="cart-count">0</span>)
+    </button>
+
+</header>
+
+
+
+<!-- =========================
+     ACCUEIL
+========================= -->
+
+<section class="hero" id="accueil">
+
+    <div class="hero-text">
+
+        <h1>
+            FLOUP
+        </h1>
+
+        <p>
+            Découvre l'univers ultra coloré des Floup !
+            Des goûts fruités, une ambiance fun et surtout
+            plein de gourmandise.
+        </p>
+
+        <a href="#produits" class="hero-button">
+            Découvrir les Floup 🍬
+        </a>
+
+    </div>
+
+
+    <div class="hero-image">
+
+        <!-- IMAGE PRINCIPALE -->
+
+        <img
+            src="images/floup.png"
+            alt="Paquet de Floup"
+        >
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     PRODUITS
+========================= -->
+
+<section id="produits">
+
+    <h2 class="section-title">
+        Nos Floup 🍬
+    </h2>
+
+
+    <div class="products">
+
+
+        <!-- PRODUIT 1 -->
+
+        <article class="product">
+
+            <img
+                src="images/floup.png"
+                alt="Floup Cocktail"
+            >
+
+            <h3>
+                Floup Cocktail
+            </h3>
+
+            <p>
+                Le goût fruité et coloré !
+            </p>
+
+            <div class="price">
+                2,50 €
+            </div>
+
+            <button
+                class="add-button"
+                onclick="addToCart('Floup Cocktail', 2.50)"
+            >
+                Ajouter au panier
+            </button>
+
+        </article>
+
+
+
+        <!-- PRODUIT 2 -->
+
+        <article class="product">
+
+            <img
+                src="images/floup2.png"
+                alt="Floup Fraise"
+            >
+
+            <h3>
+                Floup Fraise
+            </h3>
+
+            <p>
+                Une saveur fraise ultra gourmande.
+            </p>
+
+            <div class="price">
+                2,50 €
+            </div>
+
+            <button
+                class="add-button"
+                onclick="addToCart('Floup Fraise', 2.50)"
+            >
+                Ajouter au panier
+            </button>
+
+        </article>
+
+
+
+        <!-- PRODUIT 3 -->
+
+        <article class="product">
+
+            <img
+                src="images/floup3.png"
+                alt="Floup Orange"
+            >
+
+            <h3>
+                Floup Orange
+            </h3>
+
+            <p>
+                Un goût orange plein de fraîcheur.
+            </p>
+
+            <div class="price">
+                2,50 €
+            </div>
+
+            <button
+                class="add-button"
+                onclick="addToCart('Floup Orange', 2.50)"
+            >
+                Ajouter au panier
+            </button>
+
+        </article>
+
+
+
+        <!-- PRODUIT 4 -->
+
+        <article class="product">
+
+            <img
+                src="images/floup.png"
+                alt="Pack Floup"
+            >
+
+            <h3>
+                Pack Floup
+            </h3>
+
+            <p>
+                Plusieurs Floup pour encore plus de plaisir.
+            </p>
+
+            <div class="price">
+                9,90 €
+            </div>
+
+            <button
+                class="add-button"
+                onclick="addToCart('Pack Floup', 9.90)"
+            >
+                Ajouter au panier
+            </button>
+
+        </article>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     HISTOIRE
+========================= -->
+
+<section class="about" id="histoire">
+
+    <h2>
+        L'univers Floup
+    </h2>
+
+    <p>
+        Bienvenue dans la boutique Floup !
+        Un univers coloré, gourmand et amusant inspiré
+        de ton paquet Floup.
+        Choisis tes produits préférés et ajoute-les
+        directement à ton panier.
+    </p>
+
+</section>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <p>
+        © 2026 Floup Shop 🍬
+    </p>
+
+</footer>
+
+
+
+<!-- =========================
+     PANIER
+========================= -->
+
+<div
+    class="cart-modal"
+    id="cart-modal"
+>
+
+    <div class="cart-box">
+
+        <div class="cart-header">
+
+            <h2>
+                Mon panier 🛒
+            </h2>
+
+            <button
+                class="close-button"
+                onclick="closeCart()"
+            >
+                ✕
+            </button>
+
+        </div>
+
+
+        <div id="cart-items">
+
+            <p>
+                Ton panier est vide.
+            </p>
+
+        </div>
+
+
+        <div class="cart-total">
+
+            Total :
+            <span id="cart-total">
+                0,00 €
+            </span>
+
+        </div>
+
+
+        <button
+            class="checkout"
+            onclick="checkout()"
+        >
+            Commander
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script>
+
+    let cart = [];
+
+
+    /*
+        AJOUTER UN PRODUIT
+    */
+
+    function addToCart(name, price) {
+
+        cart.push({
+            name: name,
+            price: price
+        });
+
+        updateCart();
+
+        alert(
+            name + " a été ajouté au panier ! 🍬"
+        );
+    }
+
+
+
+    /*
+        SUPPRIMER UN PRODUIT
+    */
+
+    function removeFromCart(index) {
+
+        cart.splice(index, 1);
+
+        updateCart();
+    }
+
+
+
+    /*
+        METTRE À JOUR LE PANIER
+    */
+
+    function updateCart() {
+
+        const count =
+            document.getElementById("cart-count");
+
+        const items =
+            document.getElementById("cart-items");
+
+        const total =
+            document.getElementById("cart-total");
+
+
+        /*
+            Nombre de produits
+        */
+
+        count.textContent = cart.length;
+
+
+        /*
+            Panier vide
+        */
+
+        if (cart.length === 0) {
+
+            items.innerHTML =
+                "<p>Ton panier est vide.</p>";
+
+            total.textContent =
+                "0,00 €";
+
+            return;
+        }
+
+
+        /*
+            Affichage des produits
+        */
+
+        items.innerHTML = "";
+
+
+        let totalPrice = 0;
+
+
+        cart.forEach(function(item, index) {
+
+            totalPrice += item.price;
+
+
+            const div =
+                document.createElement("div");
+
+            div.className = "cart-item";
+
+
+            div.innerHTML = `
+
+                <span>
+                    ${item.name}
+                </span>
+
+                <strong>
+                    ${item.price.toFixed(2).replace(".", ",")} €
+                </strong>
+
+                <button
+                    onclick="removeFromCart(${index})"
+                >
+                    Supprimer
+                </button>
+
+            `;
+
+
+            items.appendChild(div);
+
+        });
+
+
+        /*
+            Total
+        */
+
+        total.textContent =
+            totalPrice.toFixed(2).replace(".", ",")
+            + " €";
+
+    }
+
+
+
+    /*
+        OUVRIR LE PANIER
+    */
+
+    function openCart() {
+
+        document
+            .getElementById("cart-modal")
+            .classList.add("active");
+
+    }
+
+
+
+    /*
+        FERMER LE PANIER
+    */
+
+    function closeCart() {
+
+        document
+            .getElementById("cart-modal")
+            .classList.remove("active");
+
+    }
+
+
+
+    /*
+        CLIQUER EN DEHORS DU PANIER
+    */
+
+    document
+        .getElementById("cart-modal")
+        .addEventListener(
+            "click",
+            function(event) {
+
+                if (
+                    event.target ===
+                    document.getElementById("cart-modal")
+                ) {
+
+                    closeCart();
+
+                }
+
+            }
+        );
+
+
+
+    /*
+        COMMANDER
+    */
+
+    function checkout() {
+
+        if (cart.length === 0) {
+
+            alert(
+                "Ton panier est vide !"
+            );
+
+            return;
+        }
+
+
+        alert(
+            "Merci pour ta commande ! 🍬\n\n" +
+            "Ceci est une démo : " +
+            "aucun paiement réel n'est effectué."
+        );
+
+    }
+
+</script>
+
+
+</body>
+
+</html>
+floup-shop
+│
+├── index.html
+│
+└── images
+    ├── floup.png
+    ├── floup2.png
+    └── floup3.png
